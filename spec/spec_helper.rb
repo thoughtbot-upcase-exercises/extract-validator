@@ -1,6 +1,8 @@
 require 'factory_girl'
 require 'active_model'
 
+I18n.enforce_available_locales = false
+
 FactoryGirl.find_definitions
 
 PROJECT_ROOT = File.expand_path("../..", __FILE__)

@@ -1,4 +1,4 @@
-class PhoneNumberFormat < ActiveModel::Validator
+class PhoneNumberFormatValidator < ActiveModel::Validator
   PHONE_REGEX = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/
 
   def validate(record)
@@ -11,7 +11,7 @@ end
 class Person
   include ActiveModel::Validations
 
-  validates_with PhoneNumberFormat
+  validates :phone_number, phone_number_format: true
 
   attr_accessor :phone_number
 
